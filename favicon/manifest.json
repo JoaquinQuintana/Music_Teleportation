@@ -1,0 +1,16 @@
+{
+  "name": "Sam's Personal Page",
+  "description": "A virtual page for Sam Steingard",
+  "version": "1.0.0.0",
+  "manifest_version": 1,
+  "icons": {
+  },
+  "app": {
+    "urls": [
+
+    ],
+    "launch": {
+
+    }
+  }
+}

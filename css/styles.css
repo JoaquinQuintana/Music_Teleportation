@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+* {
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: auto;
+  max-width: 1200px;
+  margin: auto;
+  background-size: cover !important;
+  background: url("../images/header-background.png"), linear-gradient(-20deg, #40afd7 0%, #0097ce 100%);
+  background-attachment: fixed;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .main-nav {
+  margin: auto;
+  width: 90%;
+  color: white;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+header .main-nav ul {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  padding: 0;
+  list-style: none;
+}
+
+header .main-nav ul li {
+  padding: auto;
+}
+
+header .main-nav a {
+  color: inherit;
+  text-decoration: none;
+  padding: 1.5rem;
+}
+
+header .main-nav a:hover {
+  color: #40afd7;
+}
+
+.banner {
+  width: 85%;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  padding: 30px 30px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.05);
+  -webkit-box-shadow: 0px 0px 30px 30px rgba(255, 255, 255, 0.05);
+          box-shadow: 0px 0px 30px 30px rgba(255, 255, 255, 0.05);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  vertical-align: middle;
+  margin: auto auto;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.banner h1 {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-weight: 700;
+  font-size: calc(max(5vw, 70px));
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 0px 0px 20px 0px;
+  margin: 0;
+}
+
+.banner h3 {
+  font-family: "Libre Baskerville", serif;
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  padding: 0px;
+  max-width: 700px;
+}
+
+.banner h3 a {
+  text-decoration: none;
+  color: white;
+  text-decoration: underline;
+}
+
+.banner .social-links {
+  color: white;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 30px 0;
+}
+
+.banner .social-links ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  padding: 0;
+  list-style: none;
+  fill: white;
+  list-style: none;
+}
+
+.banner .social-links a {
+  padding: 1.5rem;
+}
+
+.banner .social-links svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+  -webkit-filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.banner .social-links svg:hover {
+  fill: #40afd7;
+}
+/*# sourceMappingURL=styles.css.map */
