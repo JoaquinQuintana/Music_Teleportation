@@ -8,6 +8,12 @@
     <link href="css/styles.css" rel="stylesheet" />
     <script rel="js/"></script>
     <title>Musical Teleportation</title>
+
+    <style>
+      @import url("/examples/css/layout.css");
+      @import url("/examples/css/color.css");
+  </style>
+  
   </head>
 
   <body class="container">
@@ -15,21 +21,31 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">HOME</a></li>
+          <li><a href="https://docs.google.com/presentation/d/1olHmV9bL8xfil1kqv-GMXAkErlwmEbU0ArDssUwZOf0/edit#slide=id.p">GoogleDocs Proposal</a></li>
+          <li><a href="index.html">Contact</a></li>
+
           <!-- <li> <a href="engineering.html">ENGINEERING</a></li>
           <li><a href="design.html">DESIGN</a></li> -->
         </ul>
       </nav>
     </header>
     <div class="banner">
-      <h1>Teleportation</h1>
-      <h3>
-        I'm a mechanical engineering graduate with a
-        <a href="https://www.google.com/search?q=cat+prom" target="_blank"
-          >viral personality</a
-        >
-        and a passion for engineering + design. Currently back in school
-        obtaining a BS in Applied Computer Science~!
-      </h3>
+      <h1>Music Teleportation</h1>
+         
+          <h2>User Inputs</h2>
+
+          <form action="/action_page.php">
+            <label for="mood">Enter Mood:</label><br>
+            <input type="text" id="mood" name="mood" value="Sunny"><br>
+            <label for="localgeo">Geographical Location:</label><br>
+            <input type="text" id="localgeo" name="localgeo" value="United States"><br><br>
+            <input type="submit" value="Submit">
+          </form> 
+          
+          <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+      </h2>
+      
+      <h3> <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe> </h3>
     </div>
   </body>
 </html>
