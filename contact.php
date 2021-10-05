@@ -2,24 +2,28 @@
 // database connection code
 if(isset($_POST['txtName']))
 {
-$username = alth9061; 
-$password = CSPBdb4fr33!;
-$host = "db4free.net:3306"; 
+
+// $username = alth9061; 
+// $password = CSPBdb4fr33!;
 // $host = "db4free.net"; 
 // $host = "85.10.205.173:3306";
-$dbname = db_connect_mt; 
+// $host = "db4free.net:3306"; 
 
-$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); 
+// $dbname = db_connect_mt; 
 
-try 
-{ 
-	$db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options); 
-} 
-catch(PDOException $ex) 
-{ 
-	die("Failed to connect to the database: " . $ex->getMessage()); 
-} 
+// $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); 
+
+// try 
+// { 
+//	$db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options); 
+// } 
+// catch(PDOException $ex) 
+// { 
+//	die("Failed to connect to the database: " . $ex->getMessage()); 
+// } 
+
 // $con = mysqli_connect('localhost', 'root', '','db_connect');
+$con = mysqli_connect('db4free.net', 'alth9061', 'CSPBdb4fr33!','db_connect_mt');
 // get the post records
 
 $txtName = $_POST['txtName'];
