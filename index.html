@@ -28,7 +28,7 @@
           <li>
             <a
               href="https://docs.google.com/presentation/d/1olHmV9bL8xfil1kqv-GMXAkErlwmEbU0ArDssUwZOf0/edit#slide=id.p"
-              >GoogleDocs Proposal</a
+              >Proposal</a
             >
           </li>
           <li><a href="contact.html">Contact</a></li>
@@ -36,19 +36,18 @@
       </nav>
     </header>
     <div class="banner">
-      <h1>Music Teleportation</h1>
 
-      <h2>User Inputs</h2>
+      <h1>Music Teleportation</h1
 
       <form action="contact.php">
-        <label for="location">Choose a location:</label><br />
+        <label for="location">Location:</label><br />
         <select name="places" id="places">
           <option value="USA">USA</option>
           <option value="CHL">Chile</option>
           <option value="RUS">Russia</option>
           <option value="PHL">Philipines</option></select
         ><br />
-        <label for="mood">Choose a mood:</label><br />
+        <label for="mood">Mood:</label><br />
         <select name="moods" id="moods">
           <option value="happy">Happy</option>
           <option value="sad">Sad</option>
@@ -64,7 +63,27 @@
         called "contact.php".
       </p>
 
-      <h3>Basic Spotify Playlist</h3>
+      <h4>Choose Location on Map</h4>
+
+      <div id="map" class="map"></div>
+  
+      <script type="text/javascript">
+        var map = new ol.Map({
+          target: "map",
+          layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM(),
+            }),
+          ],
+          view: new ol.View({
+            center: ol.proj.fromLonLat([-105.270456, 40.01484]),
+            zoom: 13,
+          }),
+        });
+      </script>
+  
+
+      <br /><h3>Sample Output Spotify Playlist</h3><br />
       <iframe
         src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb"
         width="100%"
@@ -75,23 +94,5 @@
       ></iframe>
     </div>
 
-    <h4>Music Teleportaion Maps</h4>
-
-    <div id="map" class="map"></div>
-
-    <script type="text/javascript">
-      var map = new ol.Map({
-        target: "map",
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM(),
-          }),
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([-105.270456, 40.01484]),
-          zoom: 13,
-        }),
-      });
-    </script>
   </body>
 </html>
