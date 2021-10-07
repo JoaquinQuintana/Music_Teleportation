@@ -6,9 +6,10 @@
 
     <link rel="icon" href="/favicon/favicon.ico" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.8.1/css/ol.css" type="text/css">
     <script rel="js/"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.8.1/build/ol.js"></script>
     <title>Musical Teleportation</title>
-
     <style>
       @import url("/examples/css/layout.css");
       @import url("/examples/css/color.css");
@@ -34,18 +35,39 @@
          
           <h2>User Inputs</h2>
 
-          <form action="/action_page.php">
+          <form action="contact.php">
             <label for="mood">Enter Mood:</label><br>
             <input type="text" id="mood" name="mood" value="Sunny"><br>
             <label for="localgeo">Geographical Location:</label><br>
-            <input type="text" id="localgeo" name="localgeo" value="United States"><br><br>
+            <input type="text" id="localgeo" name="localgeo" value="Boulder Colorado"><br><br>
             <input type="submit" value="Submit">
           </form> 
           
-          <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
-      </h2>
-      
-      <h3> <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe> </h3>
+          <p>If you click the "Submit" button, the form-data will be sent to a page called "contact.php".</p>
+
+          <h3>Basic Spotify Playlist</h3>
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+       
     </div>
+
+    <h4>Music Teleportaion Maps</h4>
+
+    <div id="map" class="map"></div>
+    
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-105.270456, 40.01484]),
+          zoom: 13
+        })
+      });
+    </script>
+    
   </body>
 </html>
