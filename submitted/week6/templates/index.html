@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{% block head%}
+
+
+{% endblock %}
+
+{% block body%}
+
+<a href="{{ url_for('index') }}"><button>Home</button></a>
+<a href="{{ url_for('contact') }}"><button>Contact</button></a>
+<a href="{{ url_for('Monkeysite') }}"><button>You Did It!</button></a>
+<a href="{{ url_for('show_user_profile', username = 'George') }}"><button>Welcome George!</button></a>
+
+<h1>This is a basic website made with FLASK. </h1>
+
+<h2>By: Joaquin Quintana </h2>
+{% endblock %}
