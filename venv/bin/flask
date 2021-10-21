@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/hesisenberg/Documents/Software Development Tools and Methods/week6/venv/bin/python3.9" "$0" "$@"
-' '''
+#!/Users/samsteingard/Documents/School/CS/FALL2021/SoftwareTools/MusicTeleportation/Music_Teleportation/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
