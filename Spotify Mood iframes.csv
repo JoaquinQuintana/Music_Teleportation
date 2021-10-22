@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 Mood,Playlist Name,iframe
+=======
+>>>>>>> ce3ada2a555e63b2059fd6c7fbaf3b7c22df108f
 happy,happy hits,<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 happy,sunny day ,<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 happy,happy songs ,<iframe src="https://open.spotify.com/embed/playlist/0RH319xCjeU8VyTSqCF6M4?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
