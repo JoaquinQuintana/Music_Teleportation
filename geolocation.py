@@ -1,5 +1,4 @@
 #changing python env to anaconda: https://medium.com/@udiyosovzon/how-to-activate-conda-environment-in-vs-code-ce599497f20d
-import geopy
 
 from geopy.geocoders import Nominatim
 
@@ -17,8 +16,8 @@ def GetCoordinates(EnterLocation):
     print("Latitude = ", getLoc.latitude, "\n")
     print("Longitude = ", getLoc.longitude)
 
-GetCoordinates('Rocky Ford Colorado')
-GetCoordinates('Boulder Colorado')
-GetCoordinates('honolulu hi')
-GetCoordinates('honolulu')
+#GetCoordinates('Rocky Ford Colorado')
+#GetCoordinates('Boulder Colorado')
+#GetCoordinates('honolulu hi')
+#GetCoordinates('honolulu')
 GetCoordinates('North Korea')

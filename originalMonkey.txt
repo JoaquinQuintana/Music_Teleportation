@@ -1,0 +1,68 @@
+#to import environment run . environment.sh sets the app name and environment for flask. 
+
+from flask import Flask, render_template, url_for
+from markupsafe import escape
+
+
+app = Flask(__name__) 
+
+@app.route('/')
+
+#use render template to call 
+def index():
+    return render_template('index.html')
+
+
+@app.route('/You_Did_it')
+def Monkeysite():
+    return render_template('You_did_it.html')
+
+
+#add additional route
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
+@app.route('/user/<username>')
+def show_user_profile(username):
+    # show the user profile for that user
+    return 'User %s' % escape(username)
+
+
+#print out the urls for the functions 
+with app.test_request_context():
+    print('URL for index: ',url_for('index'))
+    print('URL for contact: ',url_for('contact'))
+    print(url_for('Monkeysite'))
+    print(url_for('show_user_profile', username = 'George'))
+    
+if __name__ == "__main__":
+    app.run(debug=True)
+
+############
+<form action="{{ url_for("contact")}}" method="post">
+      <!--<label for="location">Location:</label><br />
+      <select name="places" id="places">
+        <option value="USA">USA</option>
+        <option value="CHL">Chile</option>
+        <option value="RUS">Russia</option>
+        <option value="PHL">Philipines</option></select
+      ><br /> -->
+      <label for="mood">Mood:</label><br />
+      <select name="moods" id="moods">
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        <option value="hype">Hype</option>
+        <option value="chill">Chill</option></select
+      ><br /><br /> 
+
+      <input type="submit" value="Submit" />
+    </form>
+
+##########3
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" name="fname" placeholder="firstname">
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" name="lname" placeholder="lastname">
+    <button type="submit">Login</button>

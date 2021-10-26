@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{% block head%}
+
+
+{% endblock %}
+
+{% block body%}
+
+<a href="{{ url_for('index') }}"><button>Home</button></a>
+
+<h1>By: Joaquin.Quintana@colorado.edu </h1>
+
+<form action="{{ url_for("contact")}}" method="post">
+
+
+    <label for="mood">Mood:</label><br />
+    <select name="moods" id="moods">
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="hype">Hype</option>
+      <option value="chill">Chill</option></select
+    ><br /><br /> 
+
+    <input type="submit" value="Submit" />
+
+{% endblock %}
+

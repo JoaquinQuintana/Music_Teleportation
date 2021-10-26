@@ -1,0 +1,10 @@
+*{
+
+font-family: "Helvetica Neue", Helvetica, sans-serif;
+color:black;
+}
+
+.map {
+    height: 500px;
+    width: 100%;
+  }
