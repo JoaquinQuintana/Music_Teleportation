@@ -25,6 +25,19 @@
 
 <h2>By: Joaquin Quintana </h2>
 
+<form action="{{ url_for("contact")}}" method="post">
+
+
+  <label for="mood">Mood:</label><br />
+  <select name="moods" id="moods">
+    <option value="happy">Happy</option>
+    <option value="sad">Sad</option>
+    <option value="hype">Hype</option>
+    <option value="chill">Chill</option></select
+  ><br /><br /> 
+
+  <input type="submit" value="Submit" />
+
 <iframe src="https://open.spotify.com/embed/playlist/3WJq4tQd50FdVHFnPPGsRU?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 <div id="map" class="map"></div>
