@@ -8,31 +8,32 @@
 
 {% block body%}
 
-<fieldset>
-  <legend>Contact Form</legend>
-  <form name="frmContact" method="post" action="contact.php">
-  <p>
-  <label for="Name">Name </label>
-  <input type="text" name="txtName" id="txtName">
-  </p>
-  <p>
-  <label for="email">Email</label>
-  <input type="text" name="txtEmail" id="txtEmail">
-  </p>
-  <p>
-  <label for="phone">Phone</label>
-  <input type="text" name="txtPhone" id="txtPhone">
-  </p>
-  <p>
-  <label for="message">Message</label>
-  <textarea name="txtMessage" id="txtMessage"></textarea>
-  </p>
-  <p>&nbsp;</p>
-  <p>
-  <input type="submit" name="Submit" id="Submit" value="Submit">
-  </p>
-  </form>
-  </fieldset>
+<h1>{% block title %} Contact Us! {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name"
+               placeholder="Name" class="form-control"
+               value="{{ request.form['name'] }}"></input>
+    </div>
+
+    <div class="form-group">
+      <label for="email">email</label>
+      <input type="text" name="email"
+             placeholder="email" class="form-control"
+             value="{{ request.form['email'] }}"></input>
+  </div>
+
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea name="content" placeholder="Post content"
+                  class="form-control">{{ request.form['content'] }}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
 
 
 {% endblock %}
