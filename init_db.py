@@ -8,11 +8,11 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-cur.execute("INSERT INTO contacts (uname, email, content) VALUES (?, ?)",
+cur.execute("INSERT INTO contacts (uname, email, content) VALUES (?, ?, ?)",
             ('First Name', 'first@gmail', 'Content for the first name')
             )
 
-cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
+cur.execute("INSERT INTO contacts (uname, email, content) VALUES (?, ?, ?)",
             ('Second Name', 'second@gmail','Content for the second name')
             )
 
