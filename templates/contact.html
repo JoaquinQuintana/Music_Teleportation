@@ -4,36 +4,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Contact Form</title>
 
+
 {% endblock %}
 
 {% block body%}
 
-<h1>{% block title %} Contact Us! {% endblock %}</h1>
+<h1> Contact Us!</h1>
 
+<div class="form">
 <form method="post">
-    <div class="form-group">
+    <div>
+        
         <label for="name">Name</label>
+        <p>
         <input type="text" name="name"
                placeholder="Name" class="form-control"
                value="{{ request.form['name'] }}"></input>
+        </p>
     </div>
 
-    <div class="form-group">
+    <div >
       <label for="email">email</label>
+      <p>
       <input type="text" name="email"
              placeholder="email" class="form-control"
              value="{{ request.form['email'] }}"></input>
+      </p>
   </div>
 
-    <div class="form-group">
+    <div >
         <label for="content">Content</label>
+        <p>
         <textarea name="content" placeholder="Post content"
                   class="form-control">{{ request.form['content'] }}</textarea>
+        </p>
     </div>
-    <div class="form-group">
+    <div >
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
+</div>
 
 
 {% endblock %}
