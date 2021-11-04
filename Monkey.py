@@ -25,17 +25,24 @@ def HTML_editor(HTMLfileName):
 
 app = Flask(__name__) 
 
-@app.route('/')
+@app.route('/', methods =["GET", "POST"])
+def index():
+    if request.method == "POST":
+        # getting input with name = fname in HTML form
+        mood = request.form.get("moods")
+        # getting input with name = lname in HTML form
+        #last_name = request.form.get("lname")
+        return "Mood Selected " + mood
+    return render_template('index.html')
 
 #use render template to call 
-def index():
-    return render_template('index.html')
+#def index():
+#    return render_template('index.html')
 
 
 @app.route('/You_Did_it')
 def Monkeysite():
     return render_template('You_did_it.html')
-
 
 #add additional route
 @app.route('/contact', methods =["GET", "POST"])
