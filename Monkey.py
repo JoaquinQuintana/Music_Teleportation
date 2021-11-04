@@ -1,27 +1,11 @@
 #to import environment run . environment.sh sets the app name and environment for flask. 
-
 from flask import Flask, render_template, url_for,request, flash, redirect
 from markupsafe import escape
 import re
 import sqlite3
 from werkzeug.exceptions import abort
-
-def HTML_editor(HTMLfileName):
-    fileName = "templates/" + HTMLfileName
-    reading_file = open(fileName,"r")
-
-    new_file_content = ""
-    for line in reading_file:
-        stripped_line = line.strip()
-        new_line = stripped_line.replace("George", "Joaquin")
-        new_file_content += new_line +"\n"
-    reading_file.close()
-
-    writing_file = open(fileName, "w")
-    writing_file.write(new_file_content)
-    writing_file.close()
-
-    return
+import geolocation
+import textExchange
 
 app = Flask(__name__) 
 
@@ -30,9 +14,13 @@ def index():
     if request.method == "POST":
         # getting input with name = fname in HTML form
         mood = request.form.get("moods")
+        country = request.form.get("places")
         # getting input with name = lname in HTML form
         #last_name = request.form.get("lname")
-        return "Mood Selected " + mood
+
+        print("Mood Selected " + mood + " Country Selected " + country, "\n")
+        print(geolocation.GetCoordinates('North America'))
+
     return render_template('index.html')
 
 #use render template to call 
