@@ -23,6 +23,7 @@
 
   <label for="mood">Mood:</label><br />
   <select name="moods" id="moods">
+    <option value=""></option>
     <option value="happy">Happy</option>
     <option value="sad">Sad</option>
     <option value="hype">Hype</option>
@@ -31,12 +32,13 @@
 
   <label for="location">Location:</label><br />
 <select name="places" id="places">
+  <option value=""></option>
   <option value="USA">North America</option>
-  <option value="CHL">Asia</option>
-  <option value="RUS">Europe</option>
-  <option value="CHL">Africa</option>
-  <option value="RUS">Australia</option>
-  <option value="PHL">South America</option></select
+  <option value="Asia">Asia</option>
+  <option value="Europe">Europe</option>
+  <option value="Africa">Africa</option>
+  <option value="Australia">Australia</option>
+  <option value="South America">South America</option></select
 ><br />
 
   <input type="submit" value="Submit" />
@@ -54,7 +56,7 @@
       }),
     ],
     view: new ol.View({
-      center: ol.proj.fromLonLat([-3.461804, 38.0476731]),
+      center: ol.proj.fromLonLat([10.0, 51.0]),
       zoom: 3,
     }),
   });
