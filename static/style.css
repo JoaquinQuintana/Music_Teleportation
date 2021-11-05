@@ -3,8 +3,6 @@ font-family: "Helvetica Neue", Helvetica, sans-serif;
 color:black;
 }
 
-
-
   body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -113,7 +111,6 @@ color:black;
     height: 500px;
     width: 100%;
   }
- 
 
   .form {
     border: cornflowerblue;

@@ -1,6 +1,7 @@
 #changing python env to anaconda: https://medium.com/@udiyosovzon/how-to-activate-conda-environment-in-vs-code-ce599497f20d
 
 from geopy.geocoders import Nominatim
+import random
 
 def GetCoordinates(EnterLocation):
     """returns coordinates [lat,long,address] when provided a geograhpic location as a string.
@@ -12,6 +13,11 @@ def GetCoordinates(EnterLocation):
     Note:This function is for finding geolocations for open layers map
 
     """
+    #user enters nothing so randomly select from continents
+    if not EnterLocation:
+        l = ['Asia','Africa','Europe','Australia','North America','South America']
+        EnterLocation = random.choice(l)
+        
     # calling the Nominatim tool
     loc = Nominatim(user_agent="GetLoc")
     
