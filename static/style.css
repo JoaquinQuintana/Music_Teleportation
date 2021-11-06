@@ -1,21 +1,13 @@
-*{
-font-family: "Helvetica Neue", Helvetica, sans-serif;
-color:black;
-}
+
 
   body {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    color: white;
+  
     width: auto;
     max-width: 1200px;
     margin: auto;
     background-size: cover !important;
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  
   }
   
   header {
@@ -70,10 +62,10 @@ color:black;
     align-items: center;
   }
   
-  .banner h1 {
+  .page-title {
     color: white;
     font-weight: 700;
-    font-size: calc(max(3vw, 60px));
+    font-size: calc(max(3vw, 80px));
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
@@ -82,6 +74,17 @@ color:black;
     margin: 0;
   }
   
+  .title-block {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  
+  .top-menu {
+    margin-top: 0px;
+    margin-bottom: 20px;
+
+  }
+
   .banner h3 {
     color: white;
     font-size: 18px;
