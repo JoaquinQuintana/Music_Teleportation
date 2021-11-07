@@ -1,7 +1,8 @@
-import re
 #import geolocation
+import iframeManager
 import pandas as pd
 import random 
+import re
 
 def swapCoordinates(nation):
     #get coordinates for country requested
@@ -36,6 +37,25 @@ def getCurrentCorrdinates():
         text = f.read()
         current_text = re.findall(r'fromLonLat\(.*?\)',text)
         return current_text
+
+def exchangeIframe(mood):
+    #if no mood is provide pick one for them 
+    if not mood:
+        l = ['Happy','Mellow','Energetic','Relaxing']
+        mood = random.choice(l)
+    
+    newIframe = iframeManager.getIframe(mood)
+    #print(newIframe)
+    #get current iframe 
+    with open("templates/index.html", 'r+') as f:
+        text = f.read()
+        text = re.sub(r'(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))',newIframe, text)
+        print(text)
+        f.seek(0)
+        f.write(text)
+        f.truncate() 
+
+#exchangeIframe('Energetic')
 #swapCoordinates("Europe")
 #swapCoordinates("Asia")
 #swapCoordinates("Australia")

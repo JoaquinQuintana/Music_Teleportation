@@ -1,10 +1,9 @@
 #to import environment run . environment.sh sets the app name and environment for flask. 
 from flask import Flask, render_template, url_for,request, flash, redirect
-from markupsafe import escape
-import sqlite3
 from werkzeug.exceptions import abort
+from markupsafe import escape
 import textExchange
-
+import sqlite3
 
 app = Flask(__name__) 
 
@@ -15,8 +14,8 @@ def index():
         mood = request.form.get("moods")
         country = request.form.get("places")
         #swap contents in orginal HTML file or send off to SQL database
-        print(country)
         textExchange.swapCoordinates(country)
+        textExchange.exchangeIframe(mood)
     return render_template('index.html')
 
 
