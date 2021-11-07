@@ -23,13 +23,19 @@ def swapCoordinates(nation):
     with open("templates/index.html", 'r+') as f:
         text = f.read()
         replacement = 'fromLonLat('+str(x)+')'
-        print('replacement',replacement)
+        #print('replacement',replacement)
 
         text = re.sub(r'fromLonLat\(.*?\)',replacement, text)
         f.seek(0)
         f.write(text)
         f.truncate()
-
+    return x
+        
+def getCurrentCorrdinates():
+    with open("templates/index.html", 'r+') as f:
+        text = f.read()
+        current_text = re.findall(r'fromLonLat\(.*?\)',text)
+        return current_text
 #swapCoordinates("Europe")
 #swapCoordinates("Asia")
 #swapCoordinates("Australia")

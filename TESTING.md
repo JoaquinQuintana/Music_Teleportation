@@ -11,7 +11,7 @@ Automated Test Cases
     in cmd, run "python sqlunittest.py"
     There are 4 unit tests for the SQL database.
     The first initializes the database (database.db) and fills in dummy values for two rows. The next three tests call the database and confirm the correct values exist for each of the three attributes: name, email, and content.
-2. 
+2. In sqlunittest.py there are tests for ensuring the selection of the country is properly found and returned.  
 3.
 
 User Acceptance Testing #1
