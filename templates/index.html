@@ -29,16 +29,16 @@
   <label for="mood">Mood:</label><br />
   <select name="moods" id="moods">
     <option value=""></option>
-    <option value="happy">Happy</option>
-    <option value="sad">Sad</option>
-    <option value="hype">Hype</option>
-    <option value="chill">Chill</option></select
+    <option value="Happy">Happy</option>
+    <option value="Sad">Sad</option>
+    <option value="Hype">Hype</option>
+    <option value="Chill">Chill</option></select
   ><br /><br /> 
 
   <label for="location">Location:</label><br />
   <select name="places" id="places">
   <option value=""></option>
-  <option value="USA">North America</option>
+  <option value="North America">North America</option>
   <option value="Asia">Asia</option>
   <option value="Europe">Europe</option>
   <option value="Africa">Africa</option>
@@ -61,7 +61,7 @@
       }),
     ],
     view: new ol.View({
-      center: ol.proj.fromLonLat([10.0, 51.0]),
+      center: ol.proj.fromLonLat([134.755, -24.7761086]),
       zoom: 3,
     }),
   });
@@ -70,7 +70,7 @@
      source: new ol.source.Vector({
          features: [
              new ol.Feature({
-                 geometry: new ol.geom.Point(ol.proj.fromLonLat([10.0, 51.0]))
+                 geometry: new ol.geom.Point(ol.proj.fromLonLat([134.755, -24.7761086]))
                  
              })
          ]

@@ -15,6 +15,7 @@ def index():
         mood = request.form.get("moods")
         country = request.form.get("places")
         #swap contents in orginal HTML file or send off to SQL database
+        print(country)
         textExchange.swapCoordinates(country)
     return render_template('index.html')
 

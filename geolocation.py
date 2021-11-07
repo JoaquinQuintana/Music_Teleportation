@@ -1,7 +1,7 @@
 #changing python env to anaconda: https://medium.com/@udiyosovzon/how-to-activate-conda-environment-in-vs-code-ce599497f20d
-
 from geopy.geocoders import Nominatim
 import random
+import pandas as pd
 
 def GetCoordinates(EnterLocation):
     """returns coordinates [lat,long,address] when provided a geograhpic location as a string.
@@ -27,7 +27,25 @@ def GetCoordinates(EnterLocation):
     # return found address
     #print(getLoc.address, '\n')
 
-    return [getLoc.longitude,getLoc.latitude,getLoc]
+    return [EnterLocation,getLoc.longitude,getLoc.latitude]
+
+
+#create a file to store this information as some computers are not finding the SSL file 
+l = ['Asia','Africa','Europe','Australia','North America','South America']
+dat = []
+for i in l:
+    #print(i)
+    dat.append(GetCoordinates(i))
+
+df = pd.DataFrame(dat)
+df.columns = ['continent', 'longit', 'latit']
+#df.to_csv
+df.to_pickle("Country_Long_Lat.pkl")
+
+output = pd.read_pickle("Country_Long_Lat.pkl")
+
+print (output)
+
 
 #GetCoordinates('Rocky Ford Colorado')
 #GetCoordinates('Boulder Colorado')
