@@ -1,0 +1,82 @@
+{%extends 'base.html'%}
+
+{% block head%}
+<meta charset="utf-8">
+
+
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
+<title>OpenLayers example</title>
+
+{% endblock %}
+
+{% block body%}
+
+<div class="title-block">
+<h1 class="page-title"><center> MUSIC TELEPORTATION </center></h1>
+</div>
+
+<div class="top-menu"><center>
+<a href="{{ url_for('index') }}"><button>Home</button></a>
+<a  href="{{ url_for('contact') }}" target="_blank" rel="noreferrer noopener"><button>Contact</button></a>
+<a href="{{ url_for('Monkeysite') }}"><button>You Did It!</button></a>
+<a href="{{ url_for('show_user_profile', username = 'Joaquin') }}"><button>User Profile</button></a>
+</center></div>
+
+
+<form action="{{ url_for("index")}}" method="post">
+
+
+  <label for="mood">Mood:</label><br />
+  <select name="moods" id="moods">
+    <option value=""></option>
+    <option value="Happy">Happy</option>
+    <option value="Mellow">Mellow</option>
+    <option value="Energetic">Energetic</option>
+    <option value="Relaxing">Relaxing</option></select
+  ><br /><br /> 
+
+  <label for="location">Location:</label><br />
+  <select name="places" id="places">
+  <option value=""></option>
+  <option value="North America">North America</option>
+  <option value="Asia">Asia</option>
+  <option value="Europe">Europe</option>
+  <option value="Africa">Africa</option>
+  <option value="Australia">Australia</option>
+  <option value="South America">South America</option></select
+><br />
+
+  <input type="submit" value="Submit" />
+
+<iframe src="https://open.spotify.com/embed/playlist/3Hs562oYeOsTcNmiUSj0f8?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+<div id="map" class="map"></div>
+  
+<script type="text/javascript">
+  var map = new ol.Map({
+    target: "map",
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM(),
+      }),
+    ],
+    view: new ol.View({
+      center: ol.proj.fromLonLat([134.755, -24.7761086]),
+      zoom: 3,
+    }),
+  });
+  //Added marker for map
+  var layer = new ol.layer.Vector({
+     source: new ol.source.Vector({
+         features: [
+             new ol.Feature({
+                 geometry: new ol.geom.Point(ol.proj.fromLonLat([134.755, -24.7761086]))
+                 
+             })
+         ]
+     })
+ });
+ map.addLayer(layer);
+</script>
+
+{% endblock %}
