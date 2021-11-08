@@ -75,6 +75,7 @@ Description
 Pre-conditions
     User has passed User Acceptance Testing #1 (webpage is loaded).
     As of right now, the flask app must be in "developement" mode (i.e. debugging is set to TRUE) to reload the .html page where lat/long coordinates are injected.
+    $env:FLASK_ENV = "production"
 Test steps
     1. Open .html page
     2. Select continent in location dropdown.
