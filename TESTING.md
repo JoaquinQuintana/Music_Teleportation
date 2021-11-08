@@ -11,7 +11,13 @@ Automated Test Cases
     in cmd, run "python sqlunittest.py"
     There are 4 unit tests for the SQL database.
     The first initializes the database (database.db) and fills in dummy values for two rows. The next three tests call the database and confirm the correct values exist for each of the three attributes: name, email, and content.
-2. In sqlunittest.py there are tests for ensuring the selection of the country is properly found and returned.  
+
+2. In sqlunittest.py there are tests for ensuring the selection of an input countries longitude and latitude are properly found and replaced in the HTML file index. 
+
+test_swapCoordinates first finds the current line with the longitude and latitude in the HTML file index.html and stores these in the varaible current_text. Then swapCoordinates swaps the current coordinates to the coordinates country the users requested. Here a for loop iterates over the possible countries and checks the the old cordinates are not equivlaent to the updated coordinates and should return false. 
+
+testCheckCoordinates_swapCoordinates tests that when a requested change in coordinates is provided the correct or expected coordinates for that country are returned. Test takes in each country that the user has an option to chose from in the drop down and updates the coordinates for the choosen country. The function checks that the requested coordinates are properly insert into the document are equivalent to the known coordinates for that country (known coordinates for each country are stored in list coordinates).
+
 3.
 
 User Acceptance Testing #1
