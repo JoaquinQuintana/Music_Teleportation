@@ -81,6 +81,23 @@ class storedbTestCase(unittest.TestCase):
             #check that the swap is consistent to the known coordinates in the list coordinates
             self.assertTrue(expectedText==afterSwap_text[0])
 
+    def test_GetIframe(self):
+        l = ['Happy','Mellow','Energetic','Relaxing']
+        for i in l:
+            with open("templates/index.html", 'r+') as f:
+                text = f.read()
+                oldIframe = re.findall(r'(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))',text)
+                #print(oldIframe)
+            
+            textExchange.exchangeIframe(i)
+
+            with open("templates/index.html", 'r+') as f:
+                text = f.read()
+                newIframe = re.findall(r'(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))',text)
+            #if the iframe was properly exchanged for a new one the oldIframe and newIframe variables will differe
+            #therefore check the statment is false
+            self.assertFalse(oldIframe == newIframe)
+
 
 # Main: Run Test Cases
 if __name__ == '__main__':

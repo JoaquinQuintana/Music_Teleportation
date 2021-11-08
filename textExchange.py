@@ -50,7 +50,6 @@ def exchangeIframe(mood):
     with open("templates/index.html", 'r+') as f:
         text = f.read()
         text = re.sub(r'(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))',newIframe, text)
-        print(text)
         f.seek(0)
         f.write(text)
         f.truncate() 
