@@ -61,6 +61,9 @@ def show_user_profile(username):
     # show the user profile for that user
     return 'User %s' % escape(username)
 
+@app.route('/protect')
+def pwprotect():
+    return render_template('protect.html')
 
 #print out the urls for the functions 
 with app.test_request_context():

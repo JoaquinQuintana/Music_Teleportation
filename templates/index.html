@@ -22,7 +22,7 @@ function restart() {
 <div class="top-menu"><center>
 <a href="{{ url_for('index') }}"><button>Home</button></a>
 <a href="{{ url_for('contact') }}" target="_blank" rel="noreferrer noopener"><button>Contact</button></a>
-<a href="{{ url_for('dbadmin') }}"><button>DB Admin</button></a>
+<a href="{{ url_for('pwprotect') }}"><button>DB Admin</button></a>
 <a href="{{ url_for('show_user_profile', username = 'Joaquin') }}"><button>User Profile</button></a>
 </center></div>
 
@@ -64,7 +64,7 @@ function restart() {
       }),
     ],
     view: new ol.View({
-      center: ol.proj.fromLonLat([134.755, -24.7761086]),
+      center: ol.proj.fromLonLat([-61.0006565, -21.0002179]),
       zoom: 3,
     }),
   });
@@ -73,7 +73,7 @@ function restart() {
      source: new ol.source.Vector({
          features: [
              new ol.Feature({
-                 geometry: new ol.geom.Point(ol.proj.fromLonLat([134.755, -24.7761086]))
+                 geometry: new ol.geom.Point(ol.proj.fromLonLat([-61.0006565, -21.0002179]))
                  
              })
          ]
