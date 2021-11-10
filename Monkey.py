@@ -19,9 +19,14 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/You_Did_it')
-def Monkeysite():
-    return render_template('You_did_it.html')
+@app.route('/dbadmin')
+#def Monkeysite():
+    #return render_template('dbadmin.html')
+def dbadmin():
+    conn = get_db_connection()
+    posts = conn.execute('SELECT * FROM contacts').fetchall()
+    conn.close()
+    return render_template('dbadmin.html', posts=posts)
 
 #add additional route
 @app.route('/contact', methods =["GET", "POST"])
@@ -61,7 +66,7 @@ def show_user_profile(username):
 with app.test_request_context():
     print('URL for index: ',url_for('index'))
     print('URL for contact: ',url_for('contact'))
-    print(url_for('Monkeysite'))
+    print(url_for('dbadmin'))
     print(url_for('show_user_profile', username = 'George'))
     #HTML_editor('index.html')
 
@@ -78,6 +83,9 @@ def get_contacts(contacts_id):
     if contacts is None:
         abort(404)
     return contacts
+
+#@app.route('/dbadmin')
+
     
 if __name__ == "__main__":
     app.run(debug=True)
