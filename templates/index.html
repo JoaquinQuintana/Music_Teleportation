@@ -28,9 +28,9 @@ function restart() {
 </center></div>
 
 
-<form action="{{ url_for("index")}}" method="post">
-  
-  <label for="mood">Mood:</label><br />
+<form id="moodlocation" action="{{ url_for("index")}}" method="post">
+<center>
+  <label id="dropname" for="mood">Mood:</label><br />
   <select name="moods" id="moods">
     <option value=""></option>
     <option value="Happy">Happy</option>
@@ -39,7 +39,7 @@ function restart() {
     <option value="Relaxing">Relaxing</option></select
   ><br /><br /> 
 
-  <label for="location">Location:</label><br />
+  <label id="dropname" for="location">Location:</label><br />
   <select name="places" id="places">
   <option value=""></option>
   <option value="North America">North America</option>
@@ -51,8 +51,8 @@ function restart() {
 ><br />
 
   <input type="submit" value="Submit" onclick="restart()"/>
-
-
+</center>
+</form>
 
 <div id="map" class="map"></div>
   
@@ -65,7 +65,7 @@ function restart() {
       }),
     ],
     view: new ol.View({
-      center: ol.proj.fromLonLat([-61.0006565, -21.0002179]),
+      center: ol.proj.fromLonLat([-109.0, 51.0000002]),
       zoom: 3,
     }),
   });
@@ -74,7 +74,7 @@ function restart() {
      source: new ol.source.Vector({
          features: [
              new ol.Feature({
-                 geometry: new ol.geom.Point(ol.proj.fromLonLat([-61.0006565, -21.0002179]))
+                 geometry: new ol.geom.Point(ol.proj.fromLonLat([-109.0, 51.0000002]))
                  
              })
          ]
@@ -83,7 +83,7 @@ function restart() {
  map.addLayer(layer);
 </script>
 
-<iframe src="https://open.spotify.com/embed/playlist/0RH319xCjeU8VyTSqCF6M4?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 <script>
 
@@ -105,6 +105,9 @@ btn.onclick = function () {
 #map {
 display:none;
 };
+
+
+
 </style>
 
 
