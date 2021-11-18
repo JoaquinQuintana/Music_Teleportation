@@ -24,6 +24,7 @@ function restart() {
 <a href="{{ url_for('contact') }}" target="_blank" rel="noreferrer noopener"><button>Contact</button></a>
 <a href="{{ url_for('pwprotect') }}"><button>DB Admin</button></a>
 <a href="{{ url_for('show_user_profile', username = 'Joaquin') }}"><button>User Profile</button></a>
+<button class="btn" id="button1">Map</button>
 </center></div>
 
 
@@ -51,7 +52,7 @@ function restart() {
 
   <input type="submit" value="Submit" onclick="restart()"/>
 
-<iframe src="https://open.spotify.com/embed/playlist/0RH319xCjeU8VyTSqCF6M4?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
 
 <div id="map" class="map"></div>
   
@@ -81,5 +82,31 @@ function restart() {
  });
  map.addLayer(layer);
 </script>
+
+<iframe src="https://open.spotify.com/embed/playlist/0RH319xCjeU8VyTSqCF6M4?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+<script>
+
+const targetDiv = document.getElementById("map");
+const btn = document.getElementById("button1");
+btn.onclick = function () {
+  if (targetDiv.style.display !== "none") {
+    targetDiv.style.display = "none";
+  } else {
+    targetDiv.style.display = "block";
+  }
+};
+
+
+
+</script>
+
+<style>
+#map {
+display:none;
+};
+</style>
+
+
 
 {% endblock %}
