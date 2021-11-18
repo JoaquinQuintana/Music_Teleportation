@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+
+{% block head%}
+
+
+{% endblock %}
+
+{% block body%}
+
+    <a href="{{ url_for('index') }}"><button>Home</button></a>
+    <a href="{{ url_for('contact') }}"><button>Contact</button></a>
+
+    <h1>{% block title %} Database Content {% endblock %}</h1>
+    {% for post in posts %}
+        <a href="#">
+            <h2>{{ post['email'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ post['created'] }}</span>
+        <hr>
+    {% endfor %}
+    
+{% endblock %}
