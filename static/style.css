@@ -2,7 +2,7 @@ body {
   width: auto;
   max-width: 1200px;
   margin: auto;
-  background-size: cover !important;
+  background-size: auto;
   background-image: url("prague.jpg");
   /* background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
 }
@@ -68,7 +68,7 @@ header a:hover {
   align-items: center;
   text-align: center;
   padding: 0px 0px 40px 0px;
-  margin: 0;
+  margin-bottom: 0px;
 }
 
 .title-block {
@@ -109,6 +109,9 @@ select {
 .map {
   height: 500px;
   width: 100%;
+  margin-bottom: 30px;
+  border: 10px;
+  border-color: black;
 }
 
 /* .form {
