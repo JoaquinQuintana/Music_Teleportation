@@ -9,12 +9,24 @@
 
 {% block body%}
 
+<header>
+  <nav class="main-nav" id="banner">
+  <ul>
+  <a href="{{ url_for('index') }}"><li>Home</li></a>
+  <a href="{{ url_for('contact') }}" target="_blank" rel="noreferrer noopener"><li>Contact</li></a>
+  <a href="{{ url_for('pwprotect') }}"><li>DB Admin</li></a>
+  <!-- <a href="{{ url_for('show_user_profile', username = 'Joaquin') }}"><li>User Profile</li></a> -->
+  <!-- <a><li class="btn" id="button1">Map</li></a> -->
+  </ul>
+  </nav>
+</header>
+
 <h1> Contact Us!</h1>
 
 <div class="form">
 <form method="post">
     <div>
-        
+
         <label for="name">Name</label>
         <p>
         <input type="text" name="name"

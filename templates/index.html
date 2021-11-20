@@ -5,7 +5,7 @@
 
 <script>
 function restart() {
-  window.location.reload(false); 
+  window.location.reload(false);
 }
 </script>
 <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
@@ -15,47 +15,55 @@ function restart() {
 
 {% block body%}
 
-<div class="title-block">
+<header>
+  <nav class="main-nav" id="banner">
+  <ul>
+  <a href="{{ url_for('index') }}"><li>Home</li></a>
+  <a href="{{ url_for('contact') }}" target="_blank" rel="noreferrer noopener"><li>Contact</li></a>
+  <a href="{{ url_for('pwprotect') }}"><li>DB Admin</li></a>
+  <!-- <a href="{{ url_for('show_user_profile', username = 'Joaquin') }}"><li>User Profile</li></a> -->
+  <a><li class="btn" id="button1">Show/Hide Map</li></a>
+  </ul>
+  </nav>
+</header>
+
+<div class="banner">
+
 <h1 class="page-title"><center> MUSIC TELEPORTATION </center></h1>
-</div>
-
-<div class="top-menu"><center>
-<a href="{{ url_for('index') }}"><button>Home</button></a>
-<a href="{{ url_for('contact') }}" target="_blank" rel="noreferrer noopener"><button>Contact</button></a>
-<a href="{{ url_for('pwprotect') }}"><button>DB Admin</button></a>
-<a href="{{ url_for('show_user_profile', username = 'Joaquin') }}"><button>User Profile</button></a>
-<button class="btn" id="button1">Map</button>
-</center></div>
 
 
-<form id="moodlocation" action="{{ url_for("index")}}" method="post">
-<center>
-  <label id="dropname" for="mood">Mood:</label><br />
+<form action="{{ url_for("index")}}" method="post">
+  <div class="form-item">
+  <label id="dropname" for="mood"></label>
   <select name="moods" id="moods">
-    <option value=""></option>
+    <option value="">- Select Mood -</option>
     <option value="Happy">Happy</option>
     <option value="Mellow">Mellow</option>
     <option value="Energetic">Energetic</option>
-    <option value="Relaxing">Relaxing</option></select
-  ><br /><br /> 
+    <option value="Relaxing">Relaxing</option></select>
+  </div>
 
-  <label id="dropname" for="location">Location:</label><br />
+  <div class="form-item">
+  <label id="dropname" for="location"></label>
   <select name="places" id="places">
-  <option value=""></option>
+  <option value="">- Select Location -</option>
   <option value="North America">North America</option>
   <option value="Asia">Asia</option>
   <option value="Europe">Europe</option>
   <option value="Africa">Africa</option>
   <option value="Australia">Australia</option>
-  <option value="South America">South America</option></select
-><br />
+  <option value="South America">South America</option></select>
+  </div>
 
+  <div class = "submit-btn">
   <input type="submit" value="Submit" onclick="restart()"/>
-</center>
+  </div>
+
 </form>
+</div>
 
 <div id="map" class="map"></div>
-  
+
 <script type="text/javascript">
   var map = new ol.Map({
     target: "map",
@@ -65,7 +73,7 @@ function restart() {
       }),
     ],
     view: new ol.View({
-      center: ol.proj.fromLonLat([-109.0, 51.0000002]),
+      center: ol.proj.fromLonLat([10.0, 51.0]),
       zoom: 3,
     }),
   });
@@ -74,8 +82,8 @@ function restart() {
      source: new ol.source.Vector({
          features: [
              new ol.Feature({
-                 geometry: new ol.geom.Point(ol.proj.fromLonLat([-109.0, 51.0000002]))
-                 
+                 geometry: new ol.geom.Point(ol.proj.fromLonLat([10.0, 51.0]))
+
              })
          ]
      })
@@ -83,7 +91,9 @@ function restart() {
  map.addLayer(layer);
 </script>
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+<div class="spotify">
+<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZVAVMhIe3pV?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+</div>
 
 <script>
 
@@ -97,18 +107,14 @@ btn.onclick = function () {
   }
 };
 
-
-
 </script>
 
-<style>
+
+<!-- <style>
 #map {
 display:none;
-};
-
-
-
-</style>
+}
+</style> -->
 
 
 

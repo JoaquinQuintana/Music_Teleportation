@@ -7,8 +7,17 @@
 
 {% block body%}
 
-    <a href="{{ url_for('index') }}"><button>Home</button></a>
-    <a href="{{ url_for('contact') }}"><button>Contact</button></a>
+<header>
+  <nav class="main-nav" id="banner">
+  <ul>
+  <a href="{{ url_for('index') }}"><li>Home</li></a>
+  <a href="{{ url_for('contact') }}" target="_blank" rel="noreferrer noopener"><li>Contact</li></a>
+  <a href="{{ url_for('pwprotect') }}"><li>DB Admin</li></a>
+  <!-- <a href="{{ url_for('show_user_profile', username = 'Joaquin') }}"><li>User Profile</li></a> -->
+  <!-- <a><li class="btn" id="button1">Map</li></a> -->
+  </ul>
+  </nav>
+</header>
 
     <h1>{% block title %} Database Content {% endblock %}</h1>
     {% for post in posts %}
@@ -18,5 +27,5 @@
         <span class="badge badge-primary">{{ post['created'] }}</span>
         <hr>
     {% endfor %}
-    
+
 {% endblock %}
