@@ -19,12 +19,12 @@
   </nav>
 </header>
 
-    <h1>{% block title %} Database Content {% endblock %}</h1>
+    <h1 style="color:white;">{% block title %} Database Content {% endblock %}</h1>
     {% for post in posts %}
-        <a href="#">
-            <h2>{{ post['email'] }}</h2>
-        </a>
-        <span class="badge badge-primary">{{ post['created'] }}</span>
+        <h2 style="color:white;"><b>{{ post['uname'] }}</b></h2>
+        <p style="color:white;">{{ post['email'] }}</p>
+        <p style="color:white;">{{ post['content'] }}</p>
+        <p style="color:white;"><i>{{ post['created'] }}</i></p>
         <hr>
     {% endfor %}
 

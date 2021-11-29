@@ -9,11 +9,11 @@ with open('schema.sql') as f:
 cur = connection.cursor()
 
 cur.execute("INSERT INTO contacts (uname, email, content) VALUES (?, ?, ?)",
-            ('First Name', 'first@gmail', 'Content for the first name')
+            ('Test First Name', 'first@gmail', 'Test content for the first name')
             )
 
 cur.execute("INSERT INTO contacts (uname, email, content) VALUES (?, ?, ?)",
-            ('Second Name', 'second@gmail','Content for the second name')
+            ('Test Second Name', 'second@gmail','Test content for the second name')
             )
 
 connection.commit()
