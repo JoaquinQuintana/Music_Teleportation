@@ -16,7 +16,7 @@ Motivation:
 - "Meditation" application, relaxing for end-user and exposes them to new music 
 
 Risks to project completion:
-- New languages (backend language unknown)
+- New languages (backend language Pandas and SQL)
 - No experience working with team members
 - No experience with Agile development
 - Tight class and internal milestones
@@ -24,7 +24,7 @@ Risks to project completion:
 Mitigation Strategy for above risks:
 - Learn Agile and use technique appropriately
 - Good communication with team members - meet frequently (1x/week or 2x/week if necessary)
-- Learn new languages using eachothers knowledge and online resources
+- Learn new languages using each others knowledge and online resources
 
 Development method:
 - Agile with weekly scrums. We will be learning more about the Agile process during the process (see Risks)
