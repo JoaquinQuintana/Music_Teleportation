@@ -75,12 +75,15 @@ information please see: https://www.openstreetmap.org/copyright
     target: "map",
     layers: [
       new ol.layer.Tile({
-        source: new ol.source.OSM(),
+        source: new ol.source.Stamen({layer: 'watercolor',}),
+      }),
+      new ol.layer.Tile({
+        source: new ol.source.Stamen({layer: 'terrain-labels',}),
       }),
     ],
     view: new ol.View({
       center: ol.proj.fromLonLat([89.2343748, 51.2086975]),
-      zoom: 3,
+      zoom: 2,
     }),
   });
 
