@@ -2,19 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>Password Protected page</title>
+    <title>Password Protected Page</title>
     <script type="text/javascript">
-        var s ="";
-        while (s!= "mypassword")
+        var s ="x";
+        while (s!= "mypassword" && s !== null)
             {
-            s=prompt("please enter your password");
+            s=prompt("Please enter your password");
             if (s=="mypassword")
                 {
                 window.location.href="dbadmin";
                 }
+            else if (s=== null)
+                {
+                window.location.href="/";
+                }
             else
                 {
-                alert("Incorrect password-Try again");
+                alert("Incorrect password - try again");
                 }
             } 
     </script>
