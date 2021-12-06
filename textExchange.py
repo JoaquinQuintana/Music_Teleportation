@@ -1,31 +1,18 @@
-#import geolocation
-import iframeManager
 import pandas as pd
 import random 
 import re
 
 def swapCoordinates(nation):
-    #get coordinates for country requested
-    #x = geolocation.GetCoordinates(nation)
-    #print(str(x[:-1]))
-
-    #user enters nothing so randomly select from continents
-    """ if not nation:
-        l = ['Asia','Africa','Europe','Australia','North America','South America']
-        nation = random.choice(l) """
-        
-    df = pd.read_pickle("Country_Long_Lat.pkl")
+    #read file with coordinates stored in it
     df = pd.read_pickle("Country_Long_Lat.pkl")
     df = df.set_index('continent')
     df = df[df.index.str.startswith(nation)]
     x = '['+str(float(df['longit'].to_numpy())) + ', ' + str(float(df['latit'].to_numpy()))+']'
-    #print(x)
+    
     #swap old coordinates with new ones
     with open("templates/index.html", 'r+') as f:
         text = f.read()
         replacement = 'fromLonLat('+str(x)+')'
-        #print('replacement',replacement)
-
         text = re.sub(r'fromLonLat\(.*?\)',replacement, text)
         f.seek(0)
         f.write(text)
@@ -38,15 +25,20 @@ def getCurrentCorrdinates():
         current_text = re.findall(r'fromLonLat\(.*?\)',text)
         return current_text
 
-def exchangeIframe(mood,nation):
-    #if no mood is provide pick one for them 
-    """ if not mood:
-        l = ['Happy','Mellow','Energetic','Chill']
-        mood = random.choice(l) """
+def getIframe(moodSelected,nation):
+    df  = pd.read_csv('Moods_Countries.csv', names= ["nation","mood","iframe",'junk'],sep='{', header = None)
+    df = df.drop(columns=['junk'])
+    #select the mood and country from the dataframe
+    df = df[(df["mood"]== moodSelected) & (df["nation"]==nation)]
+    print(moodSelected,nation,df)
     
-    newIframe = iframeManager.getIframe(mood,nation)
-    #print(newIframe)
-    #get current iframe 
+    #return the iframe for the country and mood provided
+    return df.iframe.item()
+
+def exchangeIframe(mood,nation):
+    #iframe returned which is related to the mood and nation
+    newIframe = getIframe(mood,nation)
+
     with open("templates/index.html", 'r+') as f:
         text = f.read()
         text = re.sub(r'(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))',newIframe, text)
@@ -55,7 +47,7 @@ def exchangeIframe(mood,nation):
         f.truncate() 
 
 def text_exchange(mood,nation):
-        #user enters nothing - randomly select from continents or mood
+    #user enters nothing - randomly select from continents or mood
     if not nation:
         l = ['Asia','Africa','Europe','Australia','North America','South America']
         nation = random.choice(l)
@@ -63,12 +55,6 @@ def text_exchange(mood,nation):
         l = ['Happy','Mellow','Energetic','Chill']
         mood = random.choice(l)
     
-    
-    #exchange both coordinates and the playlist for mood when requested
+    #exchange both coordinates and the playlist for mood based on users request
     exchangeIframe(mood,nation)
     swapCoordinates(nation)
-
-#exchangeIframe('Energetic')
-#swapCoordinates("Europe")
-#swapCoordinates("Asia")
-#swapCoordinates("Australia")

@@ -10,12 +10,10 @@ app = Flask(__name__)
 @app.route('/', methods =["GET", "POST"])
 def index():
     if request.method == "POST":
-        # getting input with name = fname in HTML form
+        # getting input from inputs
         mood = request.form.get("moods")
         country = request.form.get("places")
-        #swap contents in orginal HTML file or send off to SQL database
-        #textExchange.swapCoordinates(country)
-        #textExchange.exchangeIframe(mood)
+        #swap contents in orginal HTML file for users requests
         textExchange.text_exchange(mood,country)
     return render_template('index.html')
 
@@ -72,7 +70,6 @@ with app.test_request_context():
     print('URL for contact: ',url_for('contact'))
     print(url_for('dbadmin'))
     print(url_for('show_user_profile', username = 'George'))
-    #HTML_editor('index.html')
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
