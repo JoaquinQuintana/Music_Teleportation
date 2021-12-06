@@ -10,9 +10,9 @@ def swapCoordinates(nation):
     #print(str(x[:-1]))
 
     #user enters nothing so randomly select from continents
-    if not nation:
+    """ if not nation:
         l = ['Asia','Africa','Europe','Australia','North America','South America']
-        nation = random.choice(l)
+        nation = random.choice(l) """
         
     df = pd.read_pickle("Country_Long_Lat.pkl")
     df = pd.read_pickle("Country_Long_Lat.pkl")
@@ -55,7 +55,7 @@ def exchangeIframe(mood,nation):
         f.truncate() 
 
 def text_exchange(mood,nation):
-        #user enters nothing so randomly select from continents
+        #user enters nothing - randomly select from continents or mood
     if not nation:
         l = ['Asia','Africa','Europe','Australia','North America','South America']
         nation = random.choice(l)
