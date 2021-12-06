@@ -38,13 +38,13 @@ def getCurrentCorrdinates():
         current_text = re.findall(r'fromLonLat\(.*?\)',text)
         return current_text
 
-def exchangeIframe(mood):
+def exchangeIframe(mood,nation):
     #if no mood is provide pick one for them 
-    if not mood:
-        l = ['Happy','Mellow','Energetic','Relaxing']
-        mood = random.choice(l)
+    """ if not mood:
+        l = ['Happy','Mellow','Energetic','Chill']
+        mood = random.choice(l) """
     
-    newIframe = iframeManager.getIframe(mood)
+    newIframe = iframeManager.getIframe(mood,nation)
     #print(newIframe)
     #get current iframe 
     with open("templates/index.html", 'r+') as f:
@@ -53,6 +53,20 @@ def exchangeIframe(mood):
         f.seek(0)
         f.write(text)
         f.truncate() 
+
+def text_exchange(mood,nation):
+        #user enters nothing so randomly select from continents
+    if not nation:
+        l = ['Asia','Africa','Europe','Australia','North America','South America']
+        nation = random.choice(l)
+    if not mood:
+        l = ['Happy','Mellow','Energetic','Chill']
+        mood = random.choice(l)
+    
+    
+    #exchange both coordinates and the playlist for mood when requested
+    exchangeIframe(mood,nation)
+    swapCoordinates(nation)
 
 #exchangeIframe('Energetic')
 #swapCoordinates("Europe")
