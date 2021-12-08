@@ -6,6 +6,8 @@ import textExchange
 import sqlite3
 
 app = Flask(__name__) 
+#auto update templates 
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route('/', methods =["GET", "POST"])
 def index():
@@ -89,4 +91,7 @@ def get_contacts(contacts_id):
 
     
 if __name__ == "__main__":
-    app.run(debug=True)
+    #app.run(debug=True)
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.run(debug = True, host = '0.0.0.0')

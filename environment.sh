@@ -7,4 +7,4 @@ python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 
 export FLASK_APP=Monkey.py
-export FLASK_ENV=development
+export FLASK_ENV=production
