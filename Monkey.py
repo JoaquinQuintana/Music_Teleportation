@@ -1,11 +1,11 @@
-#to import environment run . environment.sh sets the app name and environment for flask. 
+#to import environment run . environment.sh sets the app name and environment for flask.
 from flask import Flask, render_template, url_for,request, flash, redirect
 from werkzeug.exceptions import abort
 from markupsafe import escape
 import textExchange
 import sqlite3
 
-app = Flask(__name__) 
+app = Flask(__name__)
 
 @app.route('/', methods =["GET", "POST"])
 def index():
@@ -15,6 +15,8 @@ def index():
         country = request.form.get("places")
         #swap contents in orginal HTML file for users requests
         textExchange.text_exchange(mood,country)
+        return render_template('result.html')
+
     return render_template('index.html')
 
 
@@ -64,7 +66,7 @@ def show_user_profile(username):
 def pwprotect():
     return render_template('protect.html')
 
-#print out the urls for the functions 
+#print out the urls for the functions
 with app.test_request_context():
     print('URL for index: ',url_for('index'))
     print('URL for contact: ',url_for('contact'))
@@ -87,6 +89,6 @@ def get_contacts(contacts_id):
 
 #@app.route('/dbadmin')
 
-    
+
 if __name__ == "__main__":
     app.run(debug=True)

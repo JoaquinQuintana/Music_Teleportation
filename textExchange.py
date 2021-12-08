@@ -1,5 +1,5 @@
 import pandas as pd
-import random 
+import random
 import re
 
 def swapCoordinates(nation):
@@ -8,7 +8,7 @@ def swapCoordinates(nation):
     df = df.set_index('continent')
     df = df[df.index.str.startswith(nation)]
     x = '['+str(float(df['longit'].to_numpy())) + ', ' + str(float(df['latit'].to_numpy()))+']'
-    
+
     #swap old coordinates with new ones
     with open("templates/index.html", 'r+') as f:
         text = f.read()
@@ -18,7 +18,7 @@ def swapCoordinates(nation):
         f.write(text)
         f.truncate()
     return x
-        
+
 def getCurrentCorrdinates():
     with open("templates/index.html", 'r+') as f:
         text = f.read()
@@ -31,7 +31,7 @@ def getIframe(moodSelected,nation):
     #select the mood and country from the dataframe
     df = df[(df["mood"]== moodSelected) & (df["nation"]==nation)]
     print(moodSelected,nation,df)
-    
+
     #return the iframe for the country and mood provided
     return df.iframe.item()
 
@@ -40,11 +40,21 @@ def exchangeIframe(mood,nation):
     newIframe = getIframe(mood,nation)
 
     with open("templates/index.html", 'r+') as f:
+
         text = f.read()
         text = re.sub(r'(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))',newIframe, text)
         f.seek(0)
         f.write(text)
-        f.truncate() 
+        f.truncate()
+
+    with open("templates/result.html", 'w') as f:
+        f2 = open("templates/index.html", 'r+')
+        contents = f2.readlines()
+        print("!!!!", contents)
+        contents.insert(111, "<style> body: {background: url('../static/prague.jpg');} </style>")
+        contents = "".join(contents)
+        f.write(contents)
+        f.close()
 
 def text_exchange(mood,nation):
     #user enters nothing - randomly select from continents or mood
@@ -54,7 +64,7 @@ def text_exchange(mood,nation):
     if not mood:
         l = ['Happy','Mellow','Energetic','Chill']
         mood = random.choice(l)
-    
+
     #exchange both coordinates and the playlist for mood based on users request
     exchangeIframe(mood,nation)
     swapCoordinates(nation)
