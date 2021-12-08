@@ -47,11 +47,17 @@ def exchangeIframe(mood,nation):
         f.write(text)
         f.truncate()
 
-    with open("templates/result.html", 'w') as f:
-        f2 = open("templates/index.html", 'r+')
+def exchangeBGImage(mood,nation):
+
+        f2 = open("static/style.css", 'r')
         contents = f2.readlines()
         print("!!!!", contents)
-        contents.insert(111, "<style> body: {background: url('../static/prague.jpg');} </style>")
+        f2.close()
+
+
+        f = open("static/style.css", 'w')
+        contents.remove("  background: url('earthbg.png');\n")
+        contents.insert(5, "  background: url('prague.jpg');\n")
         contents = "".join(contents)
         f.write(contents)
         f.close()
@@ -67,4 +73,5 @@ def text_exchange(mood,nation):
 
     #exchange both coordinates and the playlist for mood based on users request
     exchangeIframe(mood,nation)
+    exchangeBGImage(mood,nation)
     swapCoordinates(nation)

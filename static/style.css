@@ -3,7 +3,7 @@ body {
   max-width: 1200px;
   margin: auto;
   background-size: auto;
-  background: url("earthbg.png");
+  background: url('prague.jpg');
   /* background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
   height: 100vh;
   width: auto;
@@ -18,6 +18,8 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+
+
 }
 
 header {
